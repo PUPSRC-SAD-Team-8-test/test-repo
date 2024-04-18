@@ -3,6 +3,7 @@ const config = {
     plugins: [
         'semantic-release/commit-analyzer',
         'semantic-release/release-notes-generator',
+        '@semantic-release/npm',
         [
             "@semantic-release/git", {
                 "assets": ["dist/*.js", "dist/*js.map"],
@@ -13,4 +14,4 @@ const config = {
     ]
 };
 
-module.export = config;
+module.exports = config;
