@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check branch
-        if: github.event_name == 'push' && github.ref == 'refs/heads/testing' && (github.actor != 'C-Ivan-Bandilla' && github.actor != 'Hello-Ivan')
+        if: github.event_name == 'push' && github.ref == 'refs/heads/testing' && github.actor != 'C-Ivan-Bandilla'
         run: |
           echo "ERROR: You are not authorized to push to the 'testing' branch."
           exit 1
