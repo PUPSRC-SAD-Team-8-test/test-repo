@@ -1,15 +1,19 @@
-name: "Check 'testing' Pull Requests and Pushes"
+name: "Check 'testing' Pushes"
 
 on:
   pull_request:
+    branches:
+      - testing
   push:
+    branches:
+      - testing
 
 jobs:
   check_branch:
     runs-on: ubuntu-latest
     steps:
       - name: Check branch
-        if: github.base_ref == 'main' && github.head_ref != 'testing' || github.head_ref != 'main'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/testing' && github.actor != 'allowed-username'
         run: |
-          echo "ERROR: You can only merge to testing from development and main."
+          echo "ERROR: You are not authorized to push to the 'testing' branch."
           exit 1
