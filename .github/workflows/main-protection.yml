@@ -2,6 +2,8 @@ name: "Check 'main' Pull Requests"
 
 on:
   pull_request:
+   branches:
+      - main
 
 jobs:
   check_branch:
